@@ -4,13 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/5.3.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="style/style.css">
+<title>Document</title>
 </head>
 <body>
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container">
-          <a class="navbar-brand" href="#">Navbar</a>
+          <a class="navbar-brand" href="#"><img src="images/Good-food-logo-design-on-transparent-background-PNG.png" alt="" srcset=""></a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -37,17 +41,14 @@
             
 
             <div class="d-flex ms-1">
-                <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling">Enable body scrolling</button>
-
-<div class="offcanvas offcanvas-start" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1" id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
-  <div class="offcanvas-header">
-    <h5 class="offcanvas-title" id="offcanvasScrollingLabel">Offcanvas with body scrolling</h5>
-    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-  </div>
-  <div class="offcanvas-body d-lg-none">
-    <p>Try scrolling the rest of the page to see this option in action.</p>
-  </div>
-</div>
+                <button type="button" class="btn btn-primary position-relative me-2" onclick="openSidebar()">
+                    Inbox
+                    <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                      99+
+                      
+                    </span>
+                    
+                </button>
                 
                 <button class="btn btn-danger" type="submit">order now</button>
             </div>
@@ -56,6 +57,77 @@
       
         </div>
       </nav>
-      
+
+      <div id="sidebar" class="bg-dark text-white" >
+       <div class="d-flex justify-content-between">
+        <button class="btn text-white flex-shrink-1" onclick="closeSidebar()">X</button>
+        <p>Sidebar Content</p>
+       
+       </div>
+        
+      </div>
+
+
+      <section class="main mt-3">
+        <div class="header">
+          <h1 class="text-center text-danger font-weight-bold">CHICKEN CRISPER COMBOS</h1>
+        </div>
+
+        <div class="products">
+          <div class="container">
+
+            <div class="row">
+              <div class="col-lg-4 col-xs-12 col-sm-6">
+                <div class="card p-2 mx-2">
+                  <img class="card-img-top" src="images/delicious-burger-with-many-ingredients-isolated-white-background-tasty-cheeseburger-splash-sauce.jpg" alt="Card image cap">
+                  <div class="card-body">
+                    <h5 class="card-title">Burger</h5>
+                    <p>69$</p>
+                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                  </div>
+                  <div class="card-btn">
+                    <button type="button" class="btn btn-danger w-100 mb-2">Add to Order</button>
+                    <button type="button" class="btn btn-outline-danger w-100">Customize</button>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-4 col-xs-12 col-sm-6">
+                <div class="card p-2 mx-2">
+                  <img class="card-img-top" src="images/penne-pasta-tomato-sauce-with-chicken-tomatoes-wooden-table.jpg" alt="Card image cap">
+                  <div class="card-body">
+                    <h5 class="card-title">Pasta</h5>
+                    <p>169$</p>
+                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                  </div>
+                  <div class="card-btn">
+                    <button type="button" class="btn btn-danger w-100 mb-2">Add to Order</button>
+                    <button type="button" class="btn btn-outline-danger w-100">Customize</button>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-4 col-xs-12 col-sm-6">
+                <div class="card p-2 mx-2">
+                  <img class="card-img-top" src="images/pizza-pizza-filled-with-tomatoes-salami-olives.jpg" alt="Card image cap">
+                  <div class="card-body">
+                    <h5 class="card-title">Pizza</h5>
+                    <p>269$</p>
+                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                  </div>
+                  <div class="card-btn">
+                    <button type="button" class="btn btn-danger w-100 mb-2">Add to Order</button>
+                    <button type="button" class="btn btn-outline-danger w-100">Customize</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+        </div>
+
+
+      </section>
+
+
+      <script src="app/app.js"></script>
 </body>
 </html>
