@@ -1,0 +1,20 @@
+[
+    {
+        "id":"1",
+        "name":"Pizza",
+        "img":"images/pizza-pizza-filled-with-tomatoes-salami-olives.jpg",
+        "price":"69"
+    },
+    {
+        "id":"2",
+        "name":"Burger",
+        "img":"images/delicious-burger-with-many-ingredients-isolated-white-background-tasty-cheeseburger-splash-sauce.jpg",
+        "price":"169"
+    },
+    {
+        "id":"3",
+        "name":"Pasta",
+        "img":"images/penne-pasta-tomato-sauce-with-chicken-tomatoes-wooden-table.jpg",
+        "price":"269"
+    }
+]

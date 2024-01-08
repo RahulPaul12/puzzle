@@ -14,3 +14,26 @@ nav img{
 .card img{
     height: 300px;
 }
+
+.singlecart{
+    height: 20px;
+
+}
+.singlecart img{
+    width: 30%;
+    height: auto;
+}
+#quantity{
+    width: 30%;
+}
+#cartproduct li{
+    list-style: none;
+    border: 1px solid red;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 15%;
+    width: fit-content;
+    height: 80px;
+    padding: inherit;
+}

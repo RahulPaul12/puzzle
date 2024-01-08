@@ -43,8 +43,8 @@
             <div class="d-flex ms-1">
                 <button type="button" class="btn btn-primary position-relative me-2" onclick="openSidebar()">
                     Inbox
-                    <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-                      99+
+                    <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" id="cartTotal">
+                      0
                       
                     </span>
                     
@@ -62,10 +62,16 @@
        <div class="d-flex justify-content-between">
         <button class="btn text-white flex-shrink-1" onclick="closeSidebar()">X</button>
         <p>Sidebar Content</p>
+      </div>
+        <div class="mt-5">
+          <ul id="cartproduct">
+           
+          </ul>
+        </div>
        
        </div>
         
-      </div>
+      
 
 
       <section class="main mt-3">
@@ -76,49 +82,8 @@
         <div class="products">
           <div class="container">
 
-            <div class="row">
-              <div class="col-lg-4 col-xs-12 col-sm-6">
-                <div class="card p-2 mx-2">
-                  <img class="card-img-top" src="images/delicious-burger-with-many-ingredients-isolated-white-background-tasty-cheeseburger-splash-sauce.jpg" alt="Card image cap">
-                  <div class="card-body">
-                    <h5 class="card-title">Burger</h5>
-                    <p>69$</p>
-                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                  </div>
-                  <div class="card-btn">
-                    <button type="button" class="btn btn-danger w-100 mb-2">Add to Order</button>
-                    <button type="button" class="btn btn-outline-danger w-100">Customize</button>
-                  </div>
-                </div>
-              </div>
-              <div class="col-lg-4 col-xs-12 col-sm-6">
-                <div class="card p-2 mx-2">
-                  <img class="card-img-top" src="images/penne-pasta-tomato-sauce-with-chicken-tomatoes-wooden-table.jpg" alt="Card image cap">
-                  <div class="card-body">
-                    <h5 class="card-title">Pasta</h5>
-                    <p>169$</p>
-                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                  </div>
-                  <div class="card-btn">
-                    <button type="button" class="btn btn-danger w-100 mb-2">Add to Order</button>
-                    <button type="button" class="btn btn-outline-danger w-100">Customize</button>
-                  </div>
-                </div>
-              </div>
-              <div class="col-lg-4 col-xs-12 col-sm-6">
-                <div class="card p-2 mx-2">
-                  <img class="card-img-top" src="images/pizza-pizza-filled-with-tomatoes-salami-olives.jpg" alt="Card image cap">
-                  <div class="card-body">
-                    <h5 class="card-title">Pizza</h5>
-                    <p>269$</p>
-                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                  </div>
-                  <div class="card-btn">
-                    <button type="button" class="btn btn-danger w-100 mb-2">Add to Order</button>
-                    <button type="button" class="btn btn-outline-danger w-100">Customize</button>
-                  </div>
-                </div>
-              </div>
+            <div class="row" id="productslist">
+              
             </div>
           </div>
           
