@@ -10,6 +10,7 @@
 
   document.addEventListener('DOMContentLoaded', function()
 {
+  
 
     fetch("api/products.json")
     .then(res=>res.json())
@@ -60,21 +61,61 @@
       <div class="d-flex singlecart me-2 justify-content-center align-items-center">
         <img src=${product.img} alt="">
         <div class="d-flex justify-content-center align-items-center">
-          <button class="d-flex justify-content-around align-center" id="plus">+</button>
-                <input type="text" name="" id="quantity" value="1" min="1">
-          <button class="d-flex justify-center align-items-center" id="minus">-</button>
+          <button class="d-flex justify-content-around align-center"   onclick="decrement(${product.id})">-</button>
+                <input type="text" name="" id="quantity${product.id}"  value="1" min="1" readonly class="text-center " data="${encodeURIComponent(JSON.stringify(product))}">
+          <button class="d-flex justify-center align-items-center "  onclick="increment(${product.id})">+</button>
           </div>
-          <p>69$</p>
+          <p><span id="price${product.id}">${product.price}</span>$</p>
             </div>`
       
     set.appendChild(li) 
-    plusuantity() 
+    
+    //updateprice(product)
+   
+    
   }
 
-  const plusuantity=()=>{
-    const btn = document.getElementById('plus');
-    btn.addEventListener('click', function(){
-       let value = document.getElementById('quantity').value;
-       value = value+1;
-    })
+
+  
+
+  let count=0;
+
+   let increment=(id)=>{
+    
+    
+    let current = parseInt(document.getElementById(`quantity${id}`).attributes[3].textContent)
+      console.log((document.getElementById(`quantity${id}`)));
+       let update = current+1
+       document.getElementById(`quantity${id}`).attributes[3].textContent = update
+       
+   const parse=  document.getElementById(`quantity${id}`).attributes[7].nodeValue
+   const updateparse = JSON.parse(decodeURIComponent(parse))
+   
+   document.getElementById(`price${id}`).innerText = updateprice(updateparse, update)
+
+   console.log(update);
+   }
+  const decrement=(id)=>{
+    let current = parseInt(document.getElementById(`quantity${id}`).attributes[3].textContent)
+    console.log((document.getElementById(`quantity${id}`)));
+    if(current>=1){
+      let update = current-1
+     document.getElementById(`quantity${id}`).attributes[3].textContent = update
+     
+ const parse=  document.getElementById(`quantity${id}`).attributes[7].nodeValue
+ const updateparse = JSON.parse(decodeURIComponent(parse))
+ 
+ document.getElementById(`price${id}`).innerText = updateprice(updateparse, update)
+ console.log(update);
+    }
+     
+      
+  }
+  const updateprice=(data, count)=>{
+    console.log(data.price, count);
+    console.log(data.price* count);
+    return count*(data.price)
+    
+    
+    
   }
