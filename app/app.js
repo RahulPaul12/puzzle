@@ -1,4 +1,7 @@
 
+// sidebar content
+
+
   function openSidebar() {
     document.getElementById("sidebar").style.right = "0";
   }
@@ -6,6 +9,9 @@
   function closeSidebar() {
     document.getElementById("sidebar").style.right= "-300px";
   }
+
+
+  // page onload fetch data from api
 
   document.addEventListener('DOMContentLoaded', function()
   {
@@ -41,6 +47,9 @@
   )
   const cart =[];
   let prices=[]
+
+  //  product added to cart
+
   const addtocart =(product)=>{
      const cartTotal = document.getElementById('cartTotal');
      const parseproduct = JSON.parse(decodeURIComponent(product))
@@ -61,6 +70,8 @@
 
 
   let newproduct =[];
+
+// show cart products in sidebar
 
   const showCart = (product,cart)=>{
       const set = document.getElementById('cartproduct')
@@ -86,6 +97,8 @@
 
   let count=0;
   
+// product uantity update
+
    const increment=(id)=>{
        let current = parseInt(document.getElementById(`quantity${id}`).attributes[3].textContent)
        let update = current+1
@@ -113,7 +126,8 @@
   }
 
 
- 
+//  update uantity price
+
   const updateprice=(data, count,id)=>{
      //let price = document.getElementById(`price${id}`).innerText
     
@@ -129,7 +143,7 @@
 
 
   
-  
+  // update total price
 
 const updatetotal = (price) => {
    let total = 0;
@@ -143,6 +157,8 @@ const updatetotal = (price) => {
   return total
 };
 
+
+// delete product and update price
 
   const deleteproduct=(id)=>{
      let productIndex = cart.findIndex(product => product.id == id);
