@@ -13,15 +13,19 @@
 
   // page onload fetch data from api
 
-  document.addEventListener('DOMContentLoaded', function()
+  document.addEventListener('DOMContentLoaded', async function()
   {
    
-
-    fetch("api/products.json")
-    .then(res=>res.json())
-    .then(data=>setproducts(data));
+    try {
+      const response = await fetch("api/products.json");
+      const data = await response.json();
+      console.log(data);
+      setproducts(data);
+  } catch (error) {
+      console.error('Error fetching data:', error);
+  }});
      
-    const setproducts= (products)=>{
+    const setproducts= async (products)=>{
     const row = document.getElementById('productslist');
     products.map(product=>{   
     const div = document.createElement('div');
@@ -43,8 +47,8 @@
                 </div> `;
 
       row.appendChild(div);
-     } )}}  
-  )
+     } )}
+  
   const cart =[];
   let prices=[]
 
