@@ -9,7 +9,7 @@
 
   document.addEventListener('DOMContentLoaded', function()
   {
-  
+   
 
     fetch("api/products.json")
     .then(res=>res.json())
@@ -55,7 +55,7 @@
     updateprice(parseproduct,1,parseproduct.id)
     //console.log(cart);
     showCart(parseproduct,cart)
-    updatetotal()
+    updatetotal(parseproduct.price)
     
   }
 
@@ -120,7 +120,7 @@
      const singleprice = count*(data.price)
      let total =0
      total+=singleprice
-     updatetotal()
+     updatetotal(data.price)
      prices[id]= singleprice
    
     return singleprice 
@@ -129,17 +129,18 @@
 
 
   
-  let total = 0;
+  
 
-const updatetotal = () => {
-   total = 0;
- 
+const updatetotal = (price) => {
+   let total = 0;
+  
    prices.forEach((price) => {
     
      total += price;})
-    
+    console.log(total );
   document.getElementById('totalprice').innerText=total
   
+  return total
 };
 
 
@@ -151,10 +152,13 @@ const updatetotal = () => {
         let productPrice = document.getElementById(`price${id}`);
         productPrice.parentElement.parentElement.remove();
         console.log(cart);
-        
+        console.log(productPrice.innerText);
         document.getElementById(id).disabled =false
         cartTotal.innerText = cart.length;
-        updatetotal()
+        let price = updatetotal()
+        price-= parseInt(productPrice.innerText)
+        document.getElementById('totalprice').innerText=price
+        console.log(price);
       } 
     }
 
