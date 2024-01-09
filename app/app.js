@@ -51,71 +51,93 @@
     }
     cartTotal.innerText = cart.length;
     openSidebar()
-    showCart(parseproduct)
+    
+  console.log(cart);
+    showCart(parseproduct,cart)
   }
+  let newproduct =[];
 
-  const showCart = (product)=>{
+  const showCart = (product,cart)=>{
     const set = document.getElementById('cartproduct')
     const li = document.createElement('li');
       li.innerHTML=`
       <div class="d-flex singlecart me-2 justify-content-center align-items-center">
+      <button class="btn text-white flex-shrink-1" onclick="deleteproduct(${product.id})">X</button>
         <img src=${product.img} alt="">
         <div class="d-flex justify-content-center align-items-center">
           <button class="d-flex justify-content-around align-center"   onclick="decrement(${product.id})">-</button>
                 <input type="text" name="" id="quantity${product.id}"  value="1" min="1" readonly class="text-center " data="${encodeURIComponent(JSON.stringify(product))}">
           <button class="d-flex justify-center align-items-center "  onclick="increment(${product.id})">+</button>
           </div>
-          <p><span id="price${product.id}">${product.price}</span>$</p>
+          <span id="price${product.id}" id="${product.price}">${product.price}</span>$
             </div>`
       
     set.appendChild(li) 
-    
-    //updateprice(product)
-   
-    
+     
   }
 
 
   
 
   let count=0;
-
+  
    let increment=(id)=>{
     
     
     let current = parseInt(document.getElementById(`quantity${id}`).attributes[3].textContent)
-      console.log((document.getElementById(`quantity${id}`)));
+     
        let update = current+1
        document.getElementById(`quantity${id}`).attributes[3].textContent = update
        
    const parse=  document.getElementById(`quantity${id}`).attributes[7].nodeValue
    const updateparse = JSON.parse(decodeURIComponent(parse))
+    updateparse.quantity = update
    
-   document.getElementById(`price${id}`).innerText = updateprice(updateparse, update)
-
-   console.log(update);
+    document.getElementById(`price${id}`).innerText = updateprice(updateparse, update,id)
+   
+    updateprice(updateparse,update,id)
    }
   const decrement=(id)=>{
     let current = parseInt(document.getElementById(`quantity${id}`).attributes[3].textContent)
     console.log((document.getElementById(`quantity${id}`)));
-    if(current>=1){
+    if(current>1){
       let update = current-1
      document.getElementById(`quantity${id}`).attributes[3].textContent = update
      
  const parse=  document.getElementById(`quantity${id}`).attributes[7].nodeValue
  const updateparse = JSON.parse(decodeURIComponent(parse))
+ updateparse.quantity = update
+  document.getElementById(`price${id}`).innerText = updateprice(updateparse, update, id)
+ updateprice(updateparse,update,id)
+    }  
+  }
+ let prices=[]
+   const updateprice=(data, count,id)=>{
+   
+    let price = document.getElementById(`price${id}`).innerText
+
+      const singleprice = count*(data.price)
+      let total =0
+      total+=singleprice
+   
+      return singleprice
+    
+    
+   }
+
+   const deleteproduct=(id)=>{
+  
+ let productIndex = cart.findIndex(product => product.id == id);
+ console.log(productIndex);
+ if (productIndex !== -1) {
+     cart.splice(productIndex, 1);
+     let productPrice = document.getElementById(`price${id}`);
+ productPrice.parentElement.parentElement.remove();
+ console.log(cart);
+ document.getElementById(id).disabled =false
+    cartTotal.innerText = cart.length;
+ } 
+
+    
+   }
  
- document.getElementById(`price${id}`).innerText = updateprice(updateparse, update)
- console.log(update);
-    }
-     
-      
-  }
-  const updateprice=(data, count)=>{
-    console.log(data.price, count);
-    console.log(data.price* count);
-    return count*(data.price)
-    
-    
-    
-  }
